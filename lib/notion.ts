@@ -40,6 +40,20 @@ const getNavigationLinkPages = pMemoize(
 export async function getPage(pageId: string): Promise<ExtendedRecordMap> {
   let recordMap = await notion.getPage(pageId)
 
+  // https://github.com/transitive-bullshit/nextjs-notion-starter-kit/issues/279#issuecomment-1245467818
+  if (recordMap && recordMap['signed_urls']) {
+    const signed_urls = recordMap['signed_urls']
+    const new_signed_urls = {}
+    for (const p in signed_urls) {
+      if (signed_urls[p] && signed_urls[p].includes('.amazonaws.com/')) {
+        console.log('skip : ' + signed_urls[p])
+        continue
+      }
+      new_signed_urls[p] = signed_urls[p]
+    }
+    recordMap['signed_urls'] = new_signed_urls
+  }
+
   if (navigationStyle !== 'default') {
     // ensure that any pages linked to in the custom navigation header have
     // their block info fully resolved in the page record map so we know
