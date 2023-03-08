@@ -8,6 +8,7 @@ import { FaYoutube } from '@react-icons/all-files/fa/FaYoutube'
 import { IoSunnyOutline } from '@react-icons/all-files/io5/IoSunnyOutline'
 import { IoMoonSharp } from '@react-icons/all-files/io5/IoMoonSharp'
 
+import Giscus from '@giscus/react'
 import { useDarkMode } from 'lib/use-dark-mode'
 import * as config from 'lib/config'
 
@@ -15,7 +16,9 @@ import styles from './styles.module.css'
 
 // TODO: merge the data and icons from PageSocial with the social links in Footer
 
-export const FooterImpl: React.FC = () => {
+export const FooterImpl: React.FC<{ isHomePage: boolean }> = ({
+  isHomePage
+}) => {
   const [hasMounted, setHasMounted] = React.useState(false)
   const { isDarkMode, toggleDarkMode } = useDarkMode()
 
@@ -32,97 +35,124 @@ export const FooterImpl: React.FC = () => {
   }, [])
 
   return (
-    <footer className={styles.footer}>
-      <div className={styles.copyright}>Copyright 2022 {config.author}</div>
+    <>
+      <footer className={styles.footer}>
+        <div className={styles.copyright}>
+          Copyright {new Date().getFullYear()} {config.author}
+        </div>
 
-      <div className={styles.settings}>
-        {hasMounted && (
-          <a
-            className={styles.toggleDarkMode}
-            href='#'
-            role='button'
-            onClick={onToggleDarkMode}
-            title='Toggle dark mode'
-          >
-            {isDarkMode ? <IoMoonSharp /> : <IoSunnyOutline />}
-          </a>
-        )}
-      </div>
+        <div className={styles.settings}>
+          {hasMounted && (
+            <a
+              className={styles.toggleDarkMode}
+              href='#'
+              role='button'
+              onClick={onToggleDarkMode}
+              title='Toggle dark mode'
+            >
+              {isDarkMode ? <IoMoonSharp /> : <IoSunnyOutline />}
+            </a>
+          )}
+        </div>
 
-      <div className={styles.social}>
-        {config.twitter && (
-          <a
-            className={styles.twitter}
-            href={`https://twitter.com/${config.twitter}`}
-            title={`Twitter @${config.twitter}`}
-            target='_blank'
-            rel='noopener noreferrer'
-          >
-            <FaTwitter />
-          </a>
-        )}
+        <div className={styles.social}>
+          {config.twitter && (
+            <a
+              className={styles.twitter}
+              href={`https://twitter.com/${config.twitter}`}
+              title={`Twitter @${config.twitter}`}
+              target='_blank'
+              rel='noopener noreferrer'
+            >
+              <FaTwitter />
+            </a>
+          )}
 
-        {config.zhihu && (
-          <a
-            className={styles.zhihu}
-            href={`https://zhihu.com/people/${config.zhihu}`}
-            title={`Zhihu @${config.zhihu}`}
-            target='_blank'
-            rel='noopener noreferrer'
-          >
-            <FaZhihu />
-          </a>
-        )}
+          {config.zhihu && (
+            <a
+              className={styles.zhihu}
+              href={`https://zhihu.com/people/${config.zhihu}`}
+              title={`Zhihu @${config.zhihu}`}
+              target='_blank'
+              rel='noopener noreferrer'
+            >
+              <FaZhihu />
+            </a>
+          )}
 
-        {config.github && (
-          <a
-            className={styles.github}
-            href={`https://github.com/${config.github}`}
-            title={`GitHub @${config.github}`}
-            target='_blank'
-            rel='noopener noreferrer'
-          >
-            <FaGithub />
-          </a>
-        )}
+          {config.github && (
+            <a
+              className={styles.github}
+              href={`https://github.com/${config.github}`}
+              title={`GitHub @${config.github}`}
+              target='_blank'
+              rel='noopener noreferrer'
+            >
+              <FaGithub />
+            </a>
+          )}
 
-        {config.linkedin && (
-          <a
-            className={styles.linkedin}
-            href={`https://www.linkedin.com/in/${config.linkedin}`}
-            title={`LinkedIn ${config.author}`}
-            target='_blank'
-            rel='noopener noreferrer'
-          >
-            <FaLinkedin />
-          </a>
-        )}
+          {config.linkedin && (
+            <a
+              className={styles.linkedin}
+              href={`https://www.linkedin.com/in/${config.linkedin}`}
+              title={`LinkedIn ${config.author}`}
+              target='_blank'
+              rel='noopener noreferrer'
+            >
+              <FaLinkedin />
+            </a>
+          )}
 
-        {config.newsletter && (
-          <a
-            className={styles.newsletter}
-            href={`${config.newsletter}`}
-            title={`Newsletter ${config.author}`}
-            target='_blank'
-            rel='noopener noreferrer'
-          >
-            <FaEnvelopeOpenText />
-          </a>
-        )}
+          {config.newsletter && (
+            <a
+              className={styles.newsletter}
+              href={`${config.newsletter}`}
+              title={`Newsletter ${config.author}`}
+              target='_blank'
+              rel='noopener noreferrer'
+            >
+              <FaEnvelopeOpenText />
+            </a>
+          )}
 
-        {config.youtube && (
-          <a
-            className={styles.youtube}
-            href={`https://www.youtube.com/${config.youtube}`}
-            title={`YouTube ${config.author}`}
-            target='_blank'
-            rel='noopener noreferrer'
-          >
-            <FaYoutube />
-          </a>
-        )}
-      </div>
-    </footer>
+          {config.youtube && (
+            <a
+              className={styles.youtube}
+              href={`https://www.youtube.com/${config.youtube}`}
+              title={`YouTube ${config.author}`}
+              target='_blank'
+              rel='noopener noreferrer'
+            >
+              <FaYoutube />
+            </a>
+          )}
+        </div>
+      </footer>
+      {!isHomePage && (
+        <div
+          style={{
+            width: '100%',
+            maxWidth: 1100
+          }}
+        >
+          <Giscus
+            id='comments'
+            repo='BillQiu/nextjs-notion-starter-kit'
+            repoId='R_kgDOH835Mw'
+            category='Announcements'
+            categoryId='DIC_kwDOH835M84CUuki'
+            mapping='pathname'
+            reactionsEnabled='1'
+            emitMetadata='0'
+            inputPosition='top'
+            theme='dark'
+            lang='zh-CN'
+            loading='lazy'
+          />
+        </div>
+      )}
+    </>
   )
 }
 

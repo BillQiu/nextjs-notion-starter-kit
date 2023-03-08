@@ -204,7 +204,11 @@ export const NotionPage: React.FC<types.PageProps> = ({
     [block, recordMap, isBlogPost]
   )
 
-  const footer = React.useMemo(() => <Footer />, [])
+  const isHomePage = pageId === site?.rootNotionPageId
+  const footer = React.useMemo(
+    () => <Footer isHomePage={isHomePage} />,
+    [isHomePage]
+  )
 
   if (router.isFallback) {
     return <Loading />
