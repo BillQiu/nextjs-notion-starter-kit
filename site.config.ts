@@ -10,14 +10,14 @@ export default siteConfig({
 
   // basic site info (required)
   name: 'Next.js Notion Starter Kit',
-  domain: 'nextjs-notion-starter-kit.transitivebullsh.it',
+  domain: 'billq.cc',
   author: 'Bill Qiu',
 
   // open graph metadata (optional)
-  description: 'Example Next.js Notion Starter Kit Site',
+  // description: 'Example Next.js Notion Starter Kit Site',
 
   // social usernames (optional)
-  twitter: 'fanglaiq',
+  // twitter: 'fanglaiq',
   github: 'BillQiu',
   linkedin: '',
   zhihu: 'billqiu',
