@@ -16,7 +16,13 @@
     "jsx": "preserve",
     "baseUrl": ".",
     "typeRoots": ["./node_modules/@types"],
-    "incremental": true
+    "incremental": true,
+    "paths": {
+      "react-notion-x": ["@billq/react-notion-x"],
+      "notion-utils": ["@billq/notion-utils"],
+      "notion-types": ["@billq/notion-types"],
+      "notion-client": ["@billq/notion-client"]
+    }
   },
   "exclude": ["node_modules"],
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "site.config.ts"]
