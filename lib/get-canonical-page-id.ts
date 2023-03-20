@@ -1,8 +1,8 @@
-import { ExtendedRecordMap } from 'notion-types'
+import { ExtendedRecordMap } from '@billq/notion-types'
 import {
   parsePageId,
   getCanonicalPageId as getCanonicalPageIdImpl
-} from 'notion-utils'
+} from '@billq/notion-utils'
 
 import { inversePageUrlOverrides } from './config'
 

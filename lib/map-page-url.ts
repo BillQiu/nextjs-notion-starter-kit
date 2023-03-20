@@ -1,4 +1,4 @@
-import { ExtendedRecordMap } from 'notion-types'
+import { ExtendedRecordMap } from '@billq/notion-types'
 import { uuidToId, parsePageId } from 'notion-utils'
 
 import { Site } from './types'

@@ -7,8 +7,8 @@ import {
   getPageProperty,
   isUrl,
   parsePageId
-} from 'notion-utils'
-import { PageBlock } from 'notion-types'
+} from '@billq/notion-utils'
+import { PageBlock } from '@billq/notion-types'
 
 import { notion } from 'lib/notion-api'
 import { mapImageUrl } from 'lib/map-image-url'

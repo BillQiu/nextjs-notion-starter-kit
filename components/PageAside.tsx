@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { Block, ExtendedRecordMap } from 'notion-types'
+import { Block, ExtendedRecordMap } from '@billq/notion-types'
 
 import { PageActions } from './PageActions'
 

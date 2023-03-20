@@ -2,8 +2,12 @@ import got from 'got'
 import lqip from 'lqip-modern'
 import pMap from 'p-map'
 import pMemoize from 'p-memoize'
-import { ExtendedRecordMap, PreviewImage, PreviewImageMap } from 'notion-types'
-import { getPageImageUrls, normalizeUrl } from 'notion-utils'
+import {
+  ExtendedRecordMap,
+  PreviewImage,
+  PreviewImageMap
+} from '@billq/notion-types'
+import { getPageImageUrls, normalizeUrl } from '@billq/notion-utils'
 
 import { defaultPageIcon, defaultPageCover } from './config'
 import { db } from './db'

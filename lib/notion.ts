@@ -1,7 +1,11 @@
 import pMap from 'p-map'
 import pMemoize from 'p-memoize'
-import { ExtendedRecordMap, SearchParams, SearchResults } from 'notion-types'
-import { mergeRecordMaps } from 'notion-utils'
+import {
+  ExtendedRecordMap,
+  SearchParams,
+  SearchResults
+} from '@billq/notion-types'
+import { mergeRecordMaps } from '@billq/notion-utils'
 
 import { notion } from './notion-api'
 import { getPreviewImageMap } from './preview-images'

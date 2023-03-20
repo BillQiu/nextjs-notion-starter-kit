@@ -5,8 +5,8 @@ import {
   getBlockTitle,
   getPageProperty,
   idToUuid
-} from 'notion-utils'
-import { ExtendedRecordMap } from 'notion-types'
+} from '@billq/notion-utils'
+import { ExtendedRecordMap } from '@billq/notion-types'
 
 import * as config from 'lib/config'
 import { getSiteMap } from 'lib/get-site-map'

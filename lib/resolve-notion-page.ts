@@ -1,5 +1,5 @@
-import { parsePageId } from 'notion-utils'
-import { ExtendedRecordMap } from 'notion-types'
+import { parsePageId } from '@billq/notion-utils'
+import { ExtendedRecordMap } from '@billq/notion-types'
 
 import * as acl from './acl'
 import { pageUrlOverrides, pageUrlAdditions, environment, site } from './config'
